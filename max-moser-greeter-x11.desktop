@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Max Moser's LightDM Greeter
+Comment=Python LightDM Greeter
+Exec=max-moser-greeter.py
+Type=Application
+X-LightDM-Session-Type=x
+
