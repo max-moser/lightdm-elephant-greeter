@@ -40,6 +40,10 @@ greeters-directory=/usr/local/share/lightdm/greeters:/usr/share/xgreeters
 greeter-session=elephant-greeter
 ```
 
+**Note**: If you wish to install the files somewhere else, specify them in the `make` command.  
+For instance, to install the files into subdirectories of `/usr` instead of `/usr/local`, call `make INSTALL_PATH=/usr install`.  
+The `CONFIG_PATH` (default: `/etc`) can be overridden in the same fashion.
+
 
 ## Configuration
 

@@ -1,14 +1,17 @@
+INSTALL_PATH=/usr/local
+CONFIG_PATH=/etc
+
 install:
-	mkdir -p /etc/lightdm && cp elephant-greeter.conf /etc/lightdm/
-	mkdir -p /usr/local/share/lightdm/greeters && cp elephant-greeter.desktop elephant-greeter-x11.desktop /usr/local/share/lightdm/greeters/
-	mkdir -p /usr/local/bin && cp elephant-greeter.py /usr/local/bin/
-	mkdir -p /usr/local/share/elephant-greeter && cp elephant-greeter.ui /usr/local/share/elephant-greeter/
-	mkdir -p /usr/local/share/elephant-greeter/img && cp -r img /usr/local/share/elephant-greeter/
+	install -D -m 644 -t $(CONFIG_PATH)/lightdm/ elephant-greeter.conf
+	install -D -m 755 -t $(INSTALL_PATH)/bin elephant-greeter.py
+	install -D -m 644 -t $(INSTALL_PATH)/share/lightdm/greeters elephant-greeter.desktop elephant-greeter-x11.desktop
+	install -D -m 644 -t $(INSTALL_PATH)/share/elephant-greeter elephant-greeter.ui
+	install -D -m 644 -t $(INSTALL_PATH)/share/elephant-greeter/img img/*
 
 uninstall:
-	rm /usr/local/bin/elephant-greeter.py
-	rm -r /usr/local/share/elephant-greeter/
-	rm /usr/local/share/lightdm/greeters/elephant-greeter.desktop
-	rm /usr/local/share/lightdm/greeters/elephant-greeter-x11.desktop
-	rm /etc/lightdm/elephant-greeter.conf
+	rm $(INSTALL_PATH)/bin/elephant-greeter.py
+	rm -r $(INSTALL_PATH)/share/elephant-greeter/
+	rm $(INSTALL_PATH)/share/lightdm/greeters/elephant-greeter.desktop
+	rm $(INSTALL_PATH)/share/lightdm/greeters/elephant-greeter-x11.desktop
+	rm $(CONFIG_PATH)/lightdm/elephant-greeter.conf
 
