@@ -19,6 +19,15 @@ It is based on [Matt Fischer's example LightDM greeter](http://www.mattfischer.c
 **Note**: The last authenticated user is stored in a cache file in the LightDM user's home directory (e.g. `/var/lib/lightdm/.cache/max-moser-greeter/state`), similar to [Slick Greeter](https://github.com/linuxmint/slick-greeter/blob/ae927483c5dcf3ae898b3f0849e3770cfa04afa1/src/user-list.vala#L1026).
 
 
+## Requirements
+
+* LightDM
+* Python 3
+* [Cage](https://www.hjdskes.nl/projects/cage/): small wayland compositor for the greeter
+
+**Note**: Please make sure you have all requirements installed, as having a LightDM greeter constantly failing isn't as much fun as it sounds.
+
+
 ## Installation
 
 The greeter can be installed by copying the files to the right places (`make install`) and updating LightDM's configuration file to register the greeter (`/etc/lightdm/lightdm.conf`):
@@ -49,13 +58,6 @@ ui-file-location=/usr/local/share/max-moser-greeter/max-moser-greeter.ui
 x-icon-location=/usr/local/share/max-moser-greeter/img/X.png
 wayland-icon-location=/usr/local/share/max-moser-greeter/img/wayland.png
 ```
-
-
-## Requirements
-
-* LightDM
-* Python 3
-* [Cage](https://www.hjdskes.nl/projects/cage/): small wayland compositor for the greeter
 
 
 ## Licenses
