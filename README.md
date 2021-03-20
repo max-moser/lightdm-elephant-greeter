@@ -37,7 +37,7 @@ sessions-directory=/usr/share/lightdm/sessions:/usr/share/wayland-sessions:/usr/
 greeters-directory=/usr/local/share/lightdm/greeters:/usr/share/xgreeters
 
 [Seat:*]
-greeter-session=elephant-greeter
+greeter-session=lightdm-elephant-greeter
 ```
 
 **Note**: If you wish to install the files somewhere else, specify them in the `make` command.  
