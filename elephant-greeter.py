@@ -70,6 +70,7 @@ def read_config(gtk_settings, config_file="/etc/lightdm/elephant-greeter.conf"):
                 gtk_settings.set_property(key, value)
 
     if "Greeter" in config:
+        global DEFAULT_SESSION, UI_FILE_LOCATION, X_ICON_LOCATION, WAYLAND_ICON_LOCATION
         DEFAULT_SESSION = config["Greeter"].get("default-session", DEFAULT_SESSION)
         UI_FILE_LOCATION = config["Greeter"].get("ui-file-location", UI_FILE_LOCATION)
         X_ICON_LOCATION = config["Greeter"].get("x-icon-location", X_ICON_LOCATION)
@@ -268,4 +269,3 @@ if __name__ == "__main__":
     login_window.show()
     login_window.fullscreen()
     GLib.MainLoop().run()
-
