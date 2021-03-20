@@ -5,6 +5,11 @@ A small and simple [LightDM](https://github.com/canonical/lightdm) greeter using
 It is based on [Matt Fischer's example LightDM greeter](http://www.mattfischer.com/blog/archives/5).
 
 
+## Screenshot
+
+![Screenshot](./screenshot.png?raw=true "Screenshot")
+
+
 ## Features
 
 * optionally uses Wayland, via [Cage](https://www.hjdskes.nl/projects/cage/) (instead of X11)
