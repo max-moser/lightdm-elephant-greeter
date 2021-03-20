@@ -1,0 +1,10 @@
+[GTK]
+gtk-theme-name=Mint-Y-Dark
+gtk-application-prefer-dark-theme=true
+gtk-cursor-theme-name=Adwaita
+
+[Greeter]
+ui-file-location=INSTALL_PATH/share/elephant-greeter/elephant-greeter.ui
+x-icon-location=INSTALL_PATH/share/elephant-greeter/img/X.png
+wayland-icon-location=INSTALL_PATH/share/elephant-greeter/img/wayland.png
+
