@@ -1,4 +1,4 @@
-# Elephant LightDM Greeter
+# LightDM Elephant Greeter
 
 A small and simple [LightDM](https://github.com/canonical/lightdm) greeter using Python and GTK that doesn't require an X11 server.
 
@@ -22,7 +22,7 @@ It is based on [Matt ~~Shultz's~~ Fischer's example LightDM greeter](http://www.
 ## Requirements
 
 * LightDM
-* Python 3
+* Python 3.8+
 * [Cage](https://www.hjdskes.nl/projects/cage/): small wayland compositor for the greeter
 
 **Note**: Please make sure you have all requirements installed, as having a LightDM greeter constantly failing isn't as much fun as it sounds.
@@ -41,7 +41,7 @@ greeter-session=lightdm-elephant-greeter
 ```
 
 **Note**: If you wish to install the files somewhere else, specify them in the `make` command.  
-For instance, to install the files into subdirectories of `/usr` instead of `/usr/local`, call `make INSTALL_PATH=/usr install`.  
+For instance, to install the files into subdirectories of `/usr` instead of `/usr/local`, call `make INSTALL_PATH=/usr install`.
 The `CONFIG_PATH` (default: `/etc`) can be overridden in the same fashion.
 
 
