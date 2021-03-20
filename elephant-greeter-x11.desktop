@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Max Moser's LightDM Greeter
+Name=The Elephant LightDM Greeter (X11)
 Comment=Python LightDM Greeter
-Exec=max-moser-greeter.py
+Exec=elephant-greeter.py
 Type=Application
 X-LightDM-Session-Type=x
 

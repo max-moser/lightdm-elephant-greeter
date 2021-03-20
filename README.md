@@ -1,8 +1,8 @@
-# Max Moser's LightDM Greeter
+# Elephant LightDM Greeter
 
 A small and simple [LightDM](https://github.com/canonical/lightdm) greeter using Python and GTK that doesn't require an X11 server.
 
-It is based on [Matt Fischer's example LightDM greeter](http://www.mattfischer.com/blog/archives/5).
+It is based on [Matt ~~Shultz's~~ Fischer's example LightDM greeter](http://www.mattfischer.com/blog/archives/5).
 
 
 ## Screenshot
@@ -16,7 +16,7 @@ It is based on [Matt Fischer's example LightDM greeter](http://www.mattfischer.c
 * remembers the last authenticated user
 * automatically selects the last used session per user
 
-**Note**: The last authenticated user is stored in a cache file in the LightDM user's home directory (e.g. `/var/lib/lightdm/.cache/max-moser-greeter/state`), similar to [Slick Greeter](https://github.com/linuxmint/slick-greeter/blob/ae927483c5dcf3ae898b3f0849e3770cfa04afa1/src/user-list.vala#L1026).
+**Note**: The last authenticated user is stored in a cache file in the LightDM user's home directory (e.g. `/var/lib/lightdm/.cache/elephant-greeter/state`), similar to [Slick Greeter](https://github.com/linuxmint/slick-greeter/blob/ae927483c5dcf3ae898b3f0849e3770cfa04afa1/src/user-list.vala#L1026).
 
 
 ## Requirements
@@ -37,13 +37,13 @@ sessions-directory=/usr/share/lightdm/sessions:/usr/share/wayland-sessions:/usr/
 greeters-directory=/usr/local/share/lightdm/greeters:/usr/share/xgreeters
 
 [Seat:*]
-greeter-session=max-moser-greeter
+greeter-session=elephant-greeter
 ```
 
 
 ## Configuration
 
-The greeter's configuration file (`/etc/lightdm/max-moser-greeter.conf`) contains the sections `Greeter` and `GTK`.  
+The greeter's configuration file (`/etc/lightdm/elephant-greeter.conf`) contains the sections `Greeter` and `GTK`.  
 The former are basic configuration values that can determine the behavior of the greeter (e.g. override file locations), while the latter are passed directly to GTK (and can be used to e.g. set the GTK theme).
 
 Example configuration file:
@@ -54,10 +54,15 @@ gtk-application-prefer-dark-theme=true
 
 [Greeter]
 default-session=sway
-ui-file-location=/usr/local/share/max-moser-greeter/max-moser-greeter.ui
-x-icon-location=/usr/local/share/max-moser-greeter/img/X.png
-wayland-icon-location=/usr/local/share/max-moser-greeter/img/wayland.png
+ui-file-location=/usr/local/share/elephant-greeter/elephant-greeter.ui
+x-icon-location=/usr/local/share/elephant-greeter/img/X.png
+wayland-icon-location=/usr/local/share/elephant-greeter/img/wayland.png
 ```
+
+
+## Additional Notes
+
+This project used to be called `max-moser-greeter`, until I could finally come up with a better name.
 
 
 ## Licenses

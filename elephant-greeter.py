@@ -23,12 +23,12 @@ from gi.repository import GdkPixbuf
 from gi.repository import LightDM
 
 DEFAULT_SESSION = "sway"
-UI_FILE_LOCATION = "/usr/local/share/max-moser-greeter/max-moser-greeter.ui"
-WAYLAND_ICON_LOCATION = "/usr/local/share/max-moser-greeter/img/wayland.png"
-X_ICON_LOCATION = "/usr/local/share/max-moser-greeter/img/X.png"
+UI_FILE_LOCATION = "/usr/local/share/elephant-greeter/elephant-greeter.ui"
+WAYLAND_ICON_LOCATION = "/usr/local/share/elephant-greeter/img/wayland.png"
+X_ICON_LOCATION = "/usr/local/share/elephant-greeter/img/X.png"
 
 # read the cache
-cache_dir = (Path.home() / ".cache" / "max-moser-greeter")
+cache_dir = (Path.home() / ".cache" / "elephant-greeter")
 cache_dir.mkdir(parents=True, exist_ok=True)
 state_file = (cache_dir / "state")
 state_file.touch()
@@ -55,7 +55,7 @@ def set_password_visibility(visible):
         password_label.hide()
 
 
-def read_config(gtk_settings, config_file="/etc/lightdm/max-moser-greeter.conf"):
+def read_config(gtk_settings, config_file="/etc/lightdm/elephant-greeter.conf"):
     """Read the configuration from the file."""
     if not os.path.isfile(config_file):
         return

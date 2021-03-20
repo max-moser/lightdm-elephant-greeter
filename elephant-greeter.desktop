@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Max Moser's LightDM Greeter
+Name=The Elephant LightDM Greeter (Wayland)
 Comment=Python LightDM Greeter
-Exec=cage -m last -s -d max-moser-greeter.py
+Exec=cage -m last -s -d elephant-greeter.py
 Type=Application
 X-LightDM-Session-Type=wayland
 
