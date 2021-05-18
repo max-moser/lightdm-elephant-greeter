@@ -23,6 +23,7 @@ It is based on [Matt ~~Shultz's~~ Fischer's example LightDM greeter](http://www.
 
 * LightDM
 * Python 3.8+
+* [PyGObject](https://pygobject.readthedocs.io/en/latest/index.html): GObject bindings for Python
 * [Cage](https://www.hjdskes.nl/projects/cage/): small wayland compositor for the greeter
 
 **Note**: Please make sure you have all requirements installed, as having a LightDM greeter constantly failing isn't as much fun as it sounds.
