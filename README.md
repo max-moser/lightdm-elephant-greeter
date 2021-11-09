@@ -1,4 +1,4 @@
-![Unicorn Greeter] (https://github.com/FlirtatiousMule/unicorn-greeter/blob/main/img/unicorn-greeter.png?raw=true)
+![Unicorn Greeter](https://github.com/FlirtatiousMule/unicorn-greeter/blob/main/img/unicorn-greeter.png?raw=true)
 
 A lightweight Wayland greeter forked from lightdm-elephant-greeter.
 
