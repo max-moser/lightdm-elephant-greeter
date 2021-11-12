@@ -1,0 +1,10 @@
+[GTK]
+gtk-theme-name=Nordic-darker
+gtk-application-prefer-dark-theme=true
+gtk-cursor-theme-name=Bibata-Rainbow-Modern
+
+[Greeter]
+ui-file-location=INSTALL_PATH/share/unicorn-greeter/unicorn-greeter.ui
+x-icon-location=INSTALL_PATH/share/unicorn-greeter/img/X.png
+wayland-icon-location=INSTALL_PATH/share/unicorn-greeter/img/wayland.png
+
