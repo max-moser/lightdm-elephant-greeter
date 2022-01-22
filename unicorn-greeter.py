@@ -24,8 +24,6 @@ from gi.repository import LightDM
 
 DEFAULT_SESSION = "sway"
 UI_FILE_LOCATION = "/usr/local/share/unicorn-greeter/unicorn-greeter.ui"
-WAYLAND_ICON_LOCATION = "/usr/local/share/unicorn-greeter/img/wayland.png"
-X_ICON_LOCATION = "/usr/local/share/unicorn-greeter/img/X.png"
 
 # read the cache
 cache_dir = (Path.home() / ".cache" / "unicorn-greeter")
@@ -70,11 +68,9 @@ def read_config(gtk_settings, config_file="/etc/lightdm/unicorn-greeter.conf"):
                 gtk_settings.set_property(key, value)
 
     if "Greeter" in config:
-        global DEFAULT_SESSION, UI_FILE_LOCATION, X_ICON_LOCATION, WAYLAND_ICON_LOCATION
+        global DEFAULT_SESSION, UI_FILE_LOCATION
         DEFAULT_SESSION = config["Greeter"].get("default-session", DEFAULT_SESSION)
         UI_FILE_LOCATION = config["Greeter"].get("ui-file-location", UI_FILE_LOCATION)
-        X_ICON_LOCATION = config["Greeter"].get("x-icon-location", X_ICON_LOCATION)
-        WAYLAND_ICON_LOCATION = config["Greeter"].get("wayland-icon-location", WAYLAND_ICON_LOCATION)
 
 
 def write_cache():
@@ -187,6 +183,10 @@ def poweroff_click_handler(widget, data=None):
     if LightDM.get_can_shutdown():
         LightDM.shutdown()
 
+def restart_click_handler(widget, data=None):
+    """Event handler for clicking the Restart button."""
+    if LightDM.get_can_restart():
+        LightDM.restart()
 
 if __name__ == "__main__":
     builder = Gtk.Builder()
@@ -205,6 +205,7 @@ if __name__ == "__main__":
     # connect builder and widgets
     ui_file_path = UI_FILE_LOCATION
     builder.add_from_file(ui_file_path)
+    login_back = builder.get_object("login_back")
     login_window = builder.get_object("login_window")
     password_entry = builder.get_object("password_entry")
     password_label = builder.get_object("password_label")
@@ -212,6 +213,7 @@ if __name__ == "__main__":
     usernames_box = builder.get_object("usernames_cb")
     sessions_box = builder.get_object("sessions_cb")
     login_button = builder.get_object("login_button")
+    restart_button = builder.get_object("restart_button")
     poweroff_button = builder.get_object("poweroff_button")
     icon = builder.get_object("icon")
 
@@ -220,29 +222,25 @@ if __name__ == "__main__":
 
     # set up the GUI
     login_window.get_root_window().set_cursor(cursor)
+    login_back.get_root_window().set_cursor(cursor)
     password_entry.set_text("")
     password_entry.set_sensitive(True)
     password_entry.set_visibility(False)
     if greeter_session_type is not None:
         print(f"greeter session type: {greeter_session_type}", file=sys.stderr)
         message_label.set_text("Welcome Back!")
-        if greeter_session_type.lower() == "wayland":
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(WAYLAND_ICON_LOCATION, 32, 32, False)
-            icon.set_from_pixbuf(pixbuf)
-        elif greeter_session_type.lower() == "x11":
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(X_ICON_LOCATION, 32, 32, False)
-            icon.set_from_pixbuf(pixbuf)
 
     # register handlers for our UI elements
     poweroff_button.connect("clicked", poweroff_click_handler)
+    restart_button.connect("clicked", restart_click_handler)
     usernames_box.connect("changed", user_change_handler)
     password_entry.connect("activate", login_click_handler)
     login_button.connect("clicked", login_click_handler)
     login_window.set_default(login_button)
 
     # make the greeter "fullscreen"
-    screen = login_window.get_screen()
-    login_window.resize(screen.get_width(), screen.get_height())
+    screen = login_back.get_screen()
+    login_back.resize(screen.get_width(), screen.get_height())
 
     # populate the combo boxes
     user_idx = 0
@@ -266,6 +264,6 @@ if __name__ == "__main__":
     else:
         usernames_box.grab_focus()
 
-    login_window.show()
-    login_window.fullscreen()
+
+    login_back.fullscreen()
     GLib.MainLoop().run()
