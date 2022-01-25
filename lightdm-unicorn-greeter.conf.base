@@ -5,6 +5,5 @@ gtk-cursor-theme-name=Bibata-Rainbow-Modern
 
 [Greeter]
 ui-file-location=INSTALL_PATH/share/lightdm-unicorn-greeter/lightdm-unicorn-greeter.ui
-x-icon-location=INSTALL_PATH/share/lightdm-unicorn-greeter/img/X.png
-wayland-icon-location=INSTALL_PATH/share/lightdm-unicorn-greeter/img/wayland.png
+background-file-location=INSTALL_PATH/share/lightdm-unicorn-greeter/img/back.jpg
 

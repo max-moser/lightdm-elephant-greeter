@@ -24,6 +24,7 @@ from gi.repository import LightDM
 
 DEFAULT_SESSION = "sway"
 UI_FILE_LOCATION = "/usr/local/share/lightdm-unicorn-greeter/lightdm-unicorn-greeter.ui"
+BACKGROUND_FILE_LOCATION = "/usr/local/share/lightdm-unicorn-greeter/img/back.jpg"
 
 # read the cache
 cache_dir = (Path.home() / ".cache" / "lightdm-unicorn-greeter")
@@ -68,9 +69,10 @@ def read_config(gtk_settings, config_file="/etc/lightdm/lightdm-unicorn-greeter.
                 gtk_settings.set_property(key, value)
 
     if "Greeter" in config:
-        global DEFAULT_SESSION, UI_FILE_LOCATION
+        global DEFAULT_SESSION, UI_FILE_LOCATION, BACKGROUND_FILE_LOCATION
         DEFAULT_SESSION = config["Greeter"].get("default-session", DEFAULT_SESSION)
         UI_FILE_LOCATION = config["Greeter"].get("ui-file-location", UI_FILE_LOCATION)
+        BACKGROUND_FILE_LOCATION = config["Greeter"].get("background-file-location", BACKGROUND_FILE_LOCATION)
 
 
 def write_cache():
@@ -215,7 +217,7 @@ if __name__ == "__main__":
     login_button = builder.get_object("login_button")
     restart_button = builder.get_object("restart_button")
     poweroff_button = builder.get_object("poweroff_button")
-    icon = builder.get_object("icon")
+    image = builder.get_object("image")
 
     # connect to greeter
     greeter.connect_to_daemon_sync()
@@ -226,10 +228,9 @@ if __name__ == "__main__":
     password_entry.set_text("")
     password_entry.set_sensitive(True)
     password_entry.set_visibility(False)
-    if greeter_session_type is not None:
-        print(f"greeter session type: {greeter_session_type}", file=sys.stderr)
-        message_label.set_text("It's so fluffy, I'm gonna die!")
+    message_label.set_text("It's so fluffy, I'm gonna die!")
 
+    
     # register handlers for our UI elements
     poweroff_button.connect("clicked", poweroff_click_handler)
     restart_button.connect("clicked", restart_click_handler)
@@ -241,6 +242,9 @@ if __name__ == "__main__":
     # make the greeter "fullscreen"
     screen = login_back.get_screen()
     login_back.resize(screen.get_width(), screen.get_height())
+    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(BACKGROUND_FILE_LOCATION, -1, -1, True)
+    pixbuf = pixbuf.scale_simple(screen.width(), screen.height(), GdkPixbuf.InterpType.BILINEAR)
+    image.set_from_pixbuf(pixbuf)
 
     # populate the combo boxes
     user_idx = 0

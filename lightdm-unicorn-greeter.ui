@@ -9,17 +9,50 @@
     <property name="deletable">False</property>
     <property name="gravity">center</property>
     <child>
-      <object class="GtkImage" id="image1">
+      <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
-        <property name="pixbuf">img/back.jpg</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+        <property name="orientation">vertical</property>
+        <property name="baseline-position">top</property>
+        <child>
+          <object class="GtkStatusbar">
+            <property name="app-paintable">True</property>
+            <property name="can-focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="spacing">1</property>
+            <property name="homogeneous">True</property>
+            <property name="baseline-position">top</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkImage" id="image">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="pixbuf">img/back.jpg</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
       </object>
     </child>
   </object>
   <object class="GtkWindow" id="login_window">
     <property name="visible">True</property>
-    <property name="can-focus">False</property>
+    <property name="can-focus">True</property>
+    <property name="has-focus">True</property>
+    <property name="is-focus">True</property>
     <property name="can-default">True</property>
+    <property name="has-default">True</property>
     <property name="receives-default">True</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
@@ -29,7 +62,7 @@
     <property name="deletable">False</property>
     <property name="gravity">center</property>
     <property name="transient-for">login_back</property>
-    <property name="attached-to">image1</property>
+    <property name="attached-to">image</property>
     <child>
       <object class="GtkLayout">
         <property name="width-request">380</property>
