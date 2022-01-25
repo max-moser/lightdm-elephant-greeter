@@ -33,8 +33,11 @@ It's forked from Max Moser's LightDM Elephant Greeter (https://github.com/max-mo
 
 ## Installation
 
-The greeter can be installed by copying the files to the right places (`make install or sudo make install for non root`) and updating LightDM's configuration file to register the greeter (`/etc/lightdm/lightdm.conf`):
 ```ini
+git clone https://github.com/FlirtatiousMule/lightdm-unicorn-greeter.git
+(`make install`) or (`sudo make install`) for non root
+Update LightDM's configuration file to register the greeter (`/etc/lightdm/lightdm.conf`):
+
 [LightDM]
 sessions-directory=/usr/share/lightdm/sessions:/usr/share/wayland-sessions:/usr/share/xsessions
 greeters-directory=/usr/local/share/lightdm/greeters:/usr/share/xgreeters
