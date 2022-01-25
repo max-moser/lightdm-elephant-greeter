@@ -27,6 +27,7 @@ It's forked from Max Moser's LightDM Elephant Greeter (https://github.com/max-mo
 * Python 3.8+
 * [PyGObject](https://pygobject.readthedocs.io/en/latest/index.html): GObject bindings for Python
 * [Cage](https://www.hjdskes.nl/projects/cage/): small wayland compositor for the greeter
+* XWayland
 
 **Note**: Please make sure you have all requirements installed, as having a LightDM greeter constantly failing isn't as much fun as it sounds.
 
