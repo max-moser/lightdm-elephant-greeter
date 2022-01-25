@@ -33,7 +33,7 @@ It's forked from Max Moser's LightDM Elephant Greeter (https://github.com/max-mo
 
 ## Installation
 
-The greeter can be installed by copying the files to the right places (`make install` or 'sudo make install' for non root) and updating LightDM's configuration file to register the greeter (`/etc/lightdm/lightdm.conf`):
+The greeter can be installed by copying the files to the right places (`make install or sudo make install for non root`) and updating LightDM's configuration file to register the greeter (`/etc/lightdm/lightdm.conf`):
 ```ini
 [LightDM]
 sessions-directory=/usr/share/lightdm/sessions:/usr/share/wayland-sessions:/usr/share/xsessions
