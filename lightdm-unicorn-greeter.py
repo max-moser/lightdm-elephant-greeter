@@ -229,11 +229,6 @@ if __name__ == "__main__":
     password_entry.set_sensitive(True)
     password_entry.set_visibility(False)
     message_label.set_text("It's so fluffy, I'm gonna die!")
-       if greeter_session_type is not None:
-        print(f"greeter session type: {greeter_session_type}", file=sys.stderr)
-        message_label.set_text("Welcome Back!")
-        if greeter_session_type.lower() == "wayland":
-        elif greeter_session_type.lower() == "x11":
             
     # register handlers for our UI elements
     poweroff_button.connect("clicked", poweroff_click_handler)
