@@ -4,6 +4,7 @@ A more feature rich [LightDM](https://github.com/canonical/lightdm) greeter usin
 
 It's forked from Max Moser's LightDM Elephant Greeter (https://github.com/max-moser/lightdm-elephant-greeter) which is based on [Matt Fischer's example LightDM greeter](http://www.mattfischer.com/blog/archives/5).  My goal is to make it a more feature rich alternative to LightDM Elephant Greeter.
 
+I prefer to use a greeter, and LightDm is my preferred. I wanted a Wayland native greeter and came across the elephant Greeter. I loved it, but felt it was missing some options that other greeters for X offer, such as customizable backgrounds, changing keyboard layouts and other things. My goal with this project is to flesh it out a bit more to bring it more on par with native X greeters.
 
 ## Screenshot
 
