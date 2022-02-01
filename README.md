@@ -1,5 +1,7 @@
 # LightDM Unicorn Greeter
 
+Latest Version: .52 1/31/22
+
 A more feature rich [LightDM](https://github.com/canonical/lightdm) greeter using Python and GTK that doesn't require an X11 server.
 
 It's forked from Max Moser's LightDM Elephant Greeter (https://github.com/max-moser/lightdm-elephant-greeter) which is based on [Matt Fischer's example LightDM greeter](http://www.mattfischer.com/blog/archives/5).  My goal is to make it a more feature rich alternative to LightDM Elephant Greeter.
@@ -72,6 +74,9 @@ background-file-location=/usr/local/share/lightdm-unicorn-greeter/img/back.jpg
 
 
 ## Changelog
+
+.52
+*Fixed a bug that would cause the login window to be behind the background
 
 .51
 * Initial release

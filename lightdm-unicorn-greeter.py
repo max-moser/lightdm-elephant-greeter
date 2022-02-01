@@ -223,7 +223,8 @@ if __name__ == "__main__":
     greeter.connect_to_daemon_sync()
 
     # set up the GUI
-    login_window.get_root_window().set_cursor(cursor)
+    login_window.set_keep_above(True)
+    login_window.show_all()
     login_back.get_root_window().set_cursor(cursor)
     password_entry.set_text("")
     password_entry.set_sensitive(True)
