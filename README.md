@@ -76,7 +76,7 @@ background-file-location=/usr/local/share/lightdm-unicorn-greeter/img/back.jpg
 ## Changelog
 
 .52
-*Fixed a bug that would cause the login window to be behind the background
+* Fixed a bug that would cause the login window to be behind the background
 
 .51
 * Initial release
