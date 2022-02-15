@@ -25,6 +25,7 @@ from gi.repository import LightDM
 DEFAULT_SESSION = "sway"
 UI_FILE_LOCATION = "/usr/local/share/lightdm-unicorn-greeter/lightdm-unicorn-greeter.ui"
 BACKGROUND_FILE_LOCATION = "/usr/local/share/lightdm-unicorn-greeter/img/back.jpg"
+SESSION_TYPE = "session_type_label"
 
 # read the cache
 cache_dir = (Path.home() / ".cache" / "lightdm-unicorn-greeter")
@@ -210,8 +211,8 @@ if __name__ == "__main__":
     login_back = builder.get_object("login_back")
     login_window = builder.get_object("login_window")
     password_entry = builder.get_object("password_entry")
-    password_label = builder.get_object("password_label")
     message_label = builder.get_object("message_label")
+    session_type_label = builder.get_object("session_type_label")
     usernames_box = builder.get_object("usernames_cb")
     sessions_box = builder.get_object("sessions_cb")
     login_button = builder.get_object("login_button")
@@ -229,9 +230,13 @@ if __name__ == "__main__":
     password_entry.set_text("")
     password_entry.set_sensitive(True)
     password_entry.set_visibility(False)
+    message_label.set_text("It's so fluffy, I'm gonna die!")
     if greeter_session_type is not None:
         print(f"greeter session type: {greeter_session_type}", file=sys.stderr)
-        message_label.set_text("It's so fluffy, I'm gonna die!")
+        if greeter_session_type.lower() == "wayland":
+            session_type_label.set_text("Wayland")
+        elif greeter_session_type.lower() == "x11":
+            session_type_label.set_text("X11")
             
     # register handlers for our UI elements
     poweroff_button.connect("clicked", poweroff_click_handler)

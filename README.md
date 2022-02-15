@@ -1,6 +1,8 @@
 # LightDM Unicorn Greeter
 
-Latest Version: .52 1/31/22
+Latest Version: .60
+
+* Developer's note:  this release is mainly focused on hammering down the layout that I envision the greeter to have. Refinements and features will come in the next few releases.
 
 A more feature rich [LightDM](https://github.com/canonical/lightdm) greeter using Python and GTK that doesn't require an X11 server.
 
@@ -39,7 +41,7 @@ I prefer to use a greeter, and LightDm is my preferred. I wanted a Wayland nativ
 
 ```ini
 git clone https://github.com/FlirtatiousMule/lightdm-unicorn-greeter.git
-(`make install`) or (`sudo make install`) for non root
+make install or sudo make install for non root
 Update LightDM's configuration file to register the greeter (`/etc/lightdm/lightdm.conf`):
 
 [LightDM]
@@ -74,6 +76,22 @@ background-file-location=/usr/local/share/lightdm-unicorn-greeter/img/back.jpg
 
 
 ## Changelog
+
+.60
+* Developer's note:  this release is mainly focused on hammering down the layout that I envision the greeter to have. Refinements and features will come in the next few releases.
+* Added a keyboard layout menu (work in progress) placeholder
+* Added headerbar to login dialog
+* Added a session type display to the headerbar
+* Removed Login text
+* Removed Restart text
+* Removed Shutdown text
+* Added Login icon
+* Added Restart icon
+* Added Shutdown icon
+* Added tooltips to the interace
+* Added user icon (eventually will support user images)
+* Added password icon
+* Moved the session selection to the headerbar (upper left of login dialog)
 
 .52
 * Fixed a bug that would cause the login window to be behind the background
