@@ -1,5 +1,8 @@
 # LightDM Unicorn Greeter
 
+.75 Update: I'm currently working migrating the UI from GTK3 to GTK4.
+In early development, but expect a release in the next few weeks.
+
 Latest Version: .60
 
 * Developer's note:  this release is mainly focused on hammering down the layout that I envision the greeter to have. Refinements and features will come in the next few releases.
@@ -42,6 +45,7 @@ I prefer to use a greeter, and LightDm is my preferred. I wanted a Wayland nativ
 ```ini
 git clone https://github.com/FlirtatiousMule/lightdm-unicorn-greeter.git
 make install or sudo make install for non root
+
 Update LightDM's configuration file to register the greeter (`/etc/lightdm/lightdm.conf`):
 
 [LightDM]
