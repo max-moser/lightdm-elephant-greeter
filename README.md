@@ -1,6 +1,6 @@
 # LightDM Unicorn Greeter
 
-.75 Update: I'm currently working migrating the UI from GTK3 to GTK4.
+.75 Update: I'm currently working on migrating the UI from GTK3 to GTK4.
 In early development, but expect a release in the next few weeks.
 
 Latest Version: .60
