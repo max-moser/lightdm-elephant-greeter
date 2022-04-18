@@ -1,7 +1,8 @@
 [Desktop Entry]
-Name=The Elephant LightDM Greeter (Wayland)
+Name=Unicorn Greeter (Wayland)
 Comment=Small and simple LightDM Greeter written in Python, using Cage (Wayland)
-Exec=cage -m last -s -d elephant-greeter.py
+Exec=cage -m last -s -d lightdm-unicorn-greeter.py
 Type=Application
 X-LightDM-Session-Type=wayland
 
+Name[en_US]=lightdm-lightdm-unicorn-greeter.desktop

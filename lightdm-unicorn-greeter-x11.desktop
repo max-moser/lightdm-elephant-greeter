@@ -1,7 +1,8 @@
 [Desktop Entry]
-Name=The Elephant LightDM Greeter (X11)
+Name=Unicorn Greeter (X11)
 Comment=Small and simple LightDM Greeter written in Python, using X11
-Exec=elephant-greeter.py
+Exec=unicorn-greeter.py
 Type=Application
 X-LightDM-Session-Type=x
 
+Name[en_US]=lightdm-unicorn-greeter-x11.desktop

@@ -1,0 +1,9 @@
+[GTK]
+gtk-theme-name=Nordic-darker
+gtk-application-prefer-dark-theme=true
+gtk-cursor-theme-name=Bibata-Rainbow-Modern
+
+[Greeter]
+ui-file-location=INSTALL_PATH/share/lightdm-unicorn-greeter/lightdm-unicorn-greeter.ui
+background-file-location=INSTALL_PATH/share/lightdm-unicorn-greeter/img/back.jpg
+
