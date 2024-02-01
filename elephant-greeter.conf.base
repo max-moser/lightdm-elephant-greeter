@@ -7,4 +7,7 @@ gtk-cursor-theme-name=Adwaita
 ui-file-location=INSTALL_PATH/share/elephant-greeter/elephant-greeter.ui
 x-icon-location=INSTALL_PATH/share/elephant-greeter/img/X.png
 wayland-icon-location=INSTALL_PATH/share/elephant-greeter/img/wayland.png
+background-file-location=
+welcome-message=Welcome Back!
+no-icon=False
 

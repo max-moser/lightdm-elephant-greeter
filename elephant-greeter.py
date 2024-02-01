@@ -26,6 +26,9 @@ DEFAULT_SESSION = "sway"
 UI_FILE_LOCATION = "/usr/local/share/elephant-greeter/elephant-greeter.ui"
 WAYLAND_ICON_LOCATION = "/usr/local/share/elephant-greeter/img/wayland.png"
 X_ICON_LOCATION = "/usr/local/share/elephant-greeter/img/X.png"
+BACKGROUND_FILE_LOCATION = ""
+WELCOME_MESSAGE = ""
+NO_ICON = True
 
 # read the cache
 cache_dir = (Path.home() / ".cache" / "elephant-greeter")
@@ -71,10 +74,14 @@ def read_config(gtk_settings, config_file="/etc/lightdm/elephant-greeter.conf"):
 
     if "Greeter" in config:
         global DEFAULT_SESSION, UI_FILE_LOCATION, X_ICON_LOCATION, WAYLAND_ICON_LOCATION
+        global BACKGROUND_FILE_LOCATION, WELCOME_MESSAGE, NO_ICON
         DEFAULT_SESSION = config["Greeter"].get("default-session", DEFAULT_SESSION)
         UI_FILE_LOCATION = config["Greeter"].get("ui-file-location", UI_FILE_LOCATION)
         X_ICON_LOCATION = config["Greeter"].get("x-icon-location", X_ICON_LOCATION)
         WAYLAND_ICON_LOCATION = config["Greeter"].get("wayland-icon-location", WAYLAND_ICON_LOCATION)
+        BACKGROUND_FILE_LOCATION = config["Greeter"].get("background-file-location", "")
+        WELCOME_MESSAGE = config["Greeter"].get("welcome-message", "Welcome Back!")
+        NO_ICON = config["Greeter"].get("no-icon", "False") == "True"
 
 
 def write_cache():
@@ -206,6 +213,16 @@ if __name__ == "__main__":
     ui_file_path = UI_FILE_LOCATION
     builder.add_from_file(ui_file_path)
     login_window = builder.get_object("login_window")
+
+    if BACKGROUND_FILE_LOCATION != "":
+        backgroundcss = login_window.get_css_name()+""".background{
+            background-image: url('""" + BACKGROUND_FILE_LOCATION + """');
+        }"""
+        print(backgroundcss)
+        styleprovider = Gtk.CssProvider()
+        styleprovider.load_from_data(backgroundcss)
+        login_window.get_style_context().add_provider(provider=styleprovider, priority=Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
     password_entry = builder.get_object("password_entry")
     password_label = builder.get_object("password_label")
     message_label = builder.get_object("message_label")
@@ -225,8 +242,10 @@ if __name__ == "__main__":
     password_entry.set_visibility(False)
     if greeter_session_type is not None:
         print(f"greeter session type: {greeter_session_type}", file=sys.stderr)
-        message_label.set_text("Welcome Back!")
-        if greeter_session_type.lower() == "wayland":
+        message_label.set_text(WELCOME_MESSAGE)
+        if NO_ICON:
+            icon.clear()
+        elif greeter_session_type.lower() == "wayland":
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(WAYLAND_ICON_LOCATION, 32, 32, False)
             icon.set_from_pixbuf(pixbuf)
         elif greeter_session_type.lower() == "x11":
